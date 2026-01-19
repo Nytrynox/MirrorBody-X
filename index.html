@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MirrorBody-X</title>
+    <style>
+      body { margin: 0; overflow: hidden; background: #000; }
+      #video-source { 
+          position: absolute; 
+          bottom: 10px; 
+          left: 10px; 
+          width: 240px; 
+          height: 135px; 
+          z-index: 100;
+          border: 1px solid #0f0;
+          transform: scaleX(-1);
+          opacity: 0.2; /* Minimal visibility */
+          pointer-events: none;
+      }
+      #canvas-output { position: absolute; top: 0; left: 0; z-index: 1; pointer-events: none; }
+      #three-canvas { position: absolute; top: 0; left: 0; z-index: 0; }
+      #gui-container { position: absolute; top: 10px; right: 10px; z-index: 10; }
+    </style>
+  </head>
+  <body>
+    <!-- Hidden video element for MediaPipe input -->
+    <video id="video-source" playsinline></video>
+    
+    <!-- Debug canvas for 2D skeleton overlay -->
+    <canvas id="canvas-output"></canvas>
+    
+    <!-- Main Three.js rendering canvas -->
+    <canvas id="three-canvas"></canvas>
+    
+    <!-- UI Container -->
+    <div id="gui-container"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
